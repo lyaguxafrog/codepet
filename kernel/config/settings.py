@@ -23,9 +23,10 @@ INSTALLED_APPS = [
 
     # LIBS:
     'corsheaders',
-    'rest_framework'
+    'rest_framework',
 
     # APPS:
+    'users',
 
 ]
 
