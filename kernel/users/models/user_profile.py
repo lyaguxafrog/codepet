@@ -25,7 +25,7 @@ class UserProfile(models.Model):
     )
 
     patronymic = models.CharField(
-        max_lenght=256,
+        max_length=256,
         null=True, blank=True,
         verbose_name='Отчество, при наличии'
     )
