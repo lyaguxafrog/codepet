@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
 
-from .collects import Collect, DonatersList
+from .collects import Collect
 from .payment import Payment
