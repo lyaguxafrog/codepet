@@ -64,6 +64,11 @@ class Collect(models.Model):
         null=True, blank=True
     )
 
+    status = models.BooleanField(
+        defualt=True,
+        verbose_name="Статус сбора"
+    )
+
 
 class DonatersList(models.Model):
     """
