@@ -68,33 +68,3 @@ class Collect(models.Model):
         default=True,
         verbose_name="Статус сбора"
     )
-
-
-class DonatersList(models.Model):
-    """
-    Модель списка доноров
-    """
-
-    donate_to = models.ForeignKey(
-        Collect,
-        on_delete=models.CASCADE,
-        verbose_name='Куда донатил'
-    )
-
-    doneter = models.ForeignKey(
-        UserProfile,
-        on_delete=models.CASCADE,
-        verbose_name='Донатер'
-    )
-
-    donate_sum = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        null=False,
-        verbose_name='Сумма пожертвования'
-    )
-
-    donate_date = models.DateTimeField(
-        default=datetime.now,
-        verbose_name='Дата пожертвования'
-    )
