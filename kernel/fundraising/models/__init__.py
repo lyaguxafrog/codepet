@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from .collects import Collect
+from .collects import Collect, DonatersList
