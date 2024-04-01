@@ -65,7 +65,7 @@ class Collect(models.Model):
     )
 
     status = models.BooleanField(
-        defualt=True,
+        default=True,
         verbose_name="Статус сбора"
     )
 
