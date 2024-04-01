@@ -27,7 +27,7 @@ INSTALLED_APPS = [
 
     # APPS:
     'users',
-    'collects',
+    'fundraising',
 
 ]
 
