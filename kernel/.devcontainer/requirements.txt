@@ -1,4 +1,4 @@
-Djang == 5.0.3
+Django == 5.0.3
 django-cors-headers == 4.3.1
 django-filter == 23.5
 psycopg2 == 2.9.9
