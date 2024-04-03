@@ -12,12 +12,17 @@ class ProfileAdmin(admin.ModelAdmin):
         'first_name',
         'last_name',
         'patronymic',
+        'create_date',
     ]
 
     readonly_fields = [
         'user',
+        'create_date',
     ]
 
     list_display = [
         'user',
+        'first_name',
+        'last_name',
+        'create_date',
     ]
