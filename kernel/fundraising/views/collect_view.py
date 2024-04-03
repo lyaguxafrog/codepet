@@ -3,7 +3,6 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiTypes
@@ -19,6 +18,18 @@ class CreateCollectView(generics.CreateAPIView):
     queryset = Collect.objects.all()
     serializer_class = CreateCollectSerializer
 
+    @extend_schema(
+        summary='Создать сбор',
+        description='Создает новый сбор.',
+        request=CreateCollectSerializer,
+        responses={
+            status.HTTP_201_CREATED: 'Сбор успешно создан.',
+            status.HTTP_400_BAD_REQUEST: 'Неверные данные для создания сбора.',
+            status.HTTP_500_INTERNAL_SERVER_ERROR: 'Произошла ошибка при создании сбора.'
+        }
+    )
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
 
 
 class StopCollectView(APIView):
