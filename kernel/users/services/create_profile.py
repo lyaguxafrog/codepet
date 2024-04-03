@@ -44,6 +44,12 @@ def create_profile(
     validate_email(email)
     validate_username(username)
 
+    if User.objects.filter(username=username).exists():
+        raise Exception('Пользователь с таким именем уже существует')
+
+    if User.objects.filter(email=email).exists():
+        raise Exception('Email уже используется')
+
     # cоздаем django-пользователя
     user = User.objects.create_user(
         username=username,
