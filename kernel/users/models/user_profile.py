@@ -11,6 +11,7 @@ class UserProfile(models.Model):
     * `first_name` - имя пользователя | varchar(256), not null
     * `last_name` - фамилия пользователя | varchar(256), not null
     * `patronymic` - отчество пользователя | varchar(256)
+    * `create_date` - дата создания пользователя | timestamp, default:now
     """
 
     user = models.OneToOneField(
