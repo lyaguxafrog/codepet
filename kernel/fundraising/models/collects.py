@@ -66,9 +66,14 @@ class Collect(models.Model):
         verbose_name="Обложка"
     )
 
+    create_date = models.DateTimeField(
+        default=datetime.now,
+        verbose_name="Дата создания сбора"
+    )
+
     end_date = models.DateTimeField(
-        verbose_name="Дата конца сбора средств",
-        null=True, blank=True
+        null=True, blank=True,
+        verbose_name="дата конца сбора средств",
     )
 
     status = models.BooleanField(
