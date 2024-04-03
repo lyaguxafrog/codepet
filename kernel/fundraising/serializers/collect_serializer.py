@@ -10,6 +10,7 @@ class CreateCollectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Collect
         fields = [
+            'id',
             'collect_owner',
             'collect_name',
             'reason',
