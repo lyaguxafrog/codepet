@@ -41,3 +41,7 @@ class Payment(models.Model):
         default=datetime.now,
         verbose_name='Дата пожертвования'
     )
+
+    class Meta:
+        verbose_name='Платеж'
+        verbose_name_plural='Платежи'

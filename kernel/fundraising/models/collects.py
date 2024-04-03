@@ -81,3 +81,7 @@ class Collect(models.Model):
         verbose_name="Статус сбора",
         help_text="True - сбор активен, False - нет"
     )
+
+    class Meta:
+        verbose_name='Сбор'
+        verbose_name_plural='Сборы'
