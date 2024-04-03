@@ -6,6 +6,11 @@ from django.db import models
 class UserProfile(models.Model):
     """
     Модель профиля пользователя
+
+    * `user` - ссылка на django.auth.User
+    * `first_name` - имя пользователя | varchar(256), not null
+    * `last_name` - фамилия пользователя | varchar(256), not null
+    * `patronymic` - отчество пользователя | varchar(256)
     """
 
     user = models.OneToOneField(

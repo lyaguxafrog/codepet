@@ -11,6 +11,11 @@ from users.models import UserProfile
 class Payment(models.Model):
     """
     Модель платежа
+
+    * `pay_to` - Ссылка на `fundraising.Collect`
+    * `payer` - Ссылка на `users.UserProfile`
+    * `sum` - Сумма доната | numeric 10/2, not null
+    * `date` - Дата доната | timestamp, default:now, not null
     """
 
     pay_to = models.ForeignKey(

@@ -9,6 +9,17 @@ from users.models import UserProfile
 class Collect(models.Model):
     """
     Модель сбора средств
+
+    * `collect_owner` - ссылка на `users.UserProfile`
+    * `collect_name` - название сбора | varchar(256), not null
+    * `reason` - причина/повод сбора, выпадающий список | varchar(256), not null
+    * `description` - описание сбора | text
+    * `collect_goal` - Цель сбора(сумма) | numeric 10/2, default:0, not null
+    * `collected_sum` - Сколько уже собрали | numeric 10/2, default:0, not null
+    * `person_count` - Кол-во донатеров | integer, default:1, not null
+    * `cover` - Обложка сбора | varchar(100)
+    * `end_date` - Дата завершения сбора | timestamp
+    * `status` - Статус активности сбора | boolean, default:True
     """
 
     collect_owner = models.ForeignKey(
@@ -19,13 +30,11 @@ class Collect(models.Model):
 
     collect_name = models.CharField(
         max_length=256,
-        null=False,
         verbose_name='Название'
     )
 
     reason = models.CharField(
         max_length=256,
-        null=False,
         verbose_name='Повод'
     )
 
@@ -43,13 +52,11 @@ class Collect(models.Model):
     collected_sum = models.DecimalField(
         max_digits=10,
         decimal_places=2,
-        null=False,
         default=0,
         verbose_name='Сколько уже собрали'
     )
 
     person_count = models.IntegerField(
-        null=False,
         default=1,
         verbose_name='Сколько человек участвует в сборе'
     )
@@ -66,5 +73,6 @@ class Collect(models.Model):
 
     status = models.BooleanField(
         default=True,
-        verbose_name="Статус сбора"
+        verbose_name="Статус сбора",
+        help_text="True - сбор активен, False - нет"
     )
