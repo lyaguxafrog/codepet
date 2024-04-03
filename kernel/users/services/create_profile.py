@@ -44,6 +44,7 @@ def create_profile(
     validate_email(email)
     validate_username(username)
 
+    # cоздаем django-пользователя
     user = User.objects.create_user(
         username=username,
         email=email,
@@ -52,7 +53,7 @@ def create_profile(
         last_name=last_name,
     )
 
-
+    # создаем профиль
     user_profile = UserProfile.objects.create(
         user=user,
         first_name=first_name,
