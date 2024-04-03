@@ -21,13 +21,13 @@ class Payment(models.Model):
     pay_to = models.ForeignKey(
         Collect,
         on_delete=models.CASCADE,
-        verbose_name='Ключ на `collect`'
+        verbose_name='Донат'
     )
 
     payer = models.ForeignKey(
         UserProfile,
         on_delete=models.CASCADE,
-        verbose_name='Ключ на `user_profile`'
+        verbose_name='Донатер'
     )
 
     sum = models.DecimalField(
