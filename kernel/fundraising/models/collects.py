@@ -82,6 +82,10 @@ class Collect(models.Model):
         help_text="True - сбор активен, False - нет"
     )
 
+    def deactivate(self):
+        self.status = False
+        self.save()
+
     class Meta:
         verbose_name='Сбор'
         verbose_name_plural='Сборы'
