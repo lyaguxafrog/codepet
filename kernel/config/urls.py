@@ -10,6 +10,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-# urlpatterns += [
-
-# ]
+urlpatterns += [
+    path('api/users/', include('users.urls')),
+]
