@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from .collect_view import CreateCollectView
+from .collect_view import CreateCollectView, StopCollectView

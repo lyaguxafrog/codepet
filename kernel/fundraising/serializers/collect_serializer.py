@@ -33,7 +33,3 @@ class CreateCollectSerializer(serializers.ModelSerializer):
         # Создание нового экземпляра Collect
         collect = Collect.objects.create(**validated_data)
         return collect
-
-    def deactivate(self):
-        self.status = False
-        self.save()
