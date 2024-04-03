@@ -6,6 +6,11 @@ from django.db import models
 class UserProfile(models.Model):
     """
     Модель профиля пользователя
+
+    * `user` - ссылка на django.auth.User
+    * `first_name` - имя пользователя | varchar(256), not null
+    * `last_name` - фамилия пользователя | varchar(256), not null
+    * `patronymic` - отчество пользователя | varchar(256)
     """
 
     user = models.OneToOneField(
@@ -27,5 +32,10 @@ class UserProfile(models.Model):
     patronymic = models.CharField(
         max_length=256,
         null=True, blank=True,
-        verbose_name='Отчество, при наличии'
+        verbose_name='Отчество',
+        help_text='При наличии'
     )
+
+    class Meta:
+        verbose_name='Профиль'
+        verbose_name_plural='Профили'
