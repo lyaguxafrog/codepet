@@ -16,7 +16,7 @@ class Collect(models.Model):
     * `description` - описание сбора | text
     * `collect_goal` - Цель сбора(сумма) | numeric 10/2, default:0, not null
     * `collected_sum` - Сколько уже собрали | numeric 10/2, default:0, not null
-    * `person_count` - Кол-во донатеров | integer, default:1, not null
+    * `person_count` - Кол-во донатеров | integer, default:0, not null
     * `cover` - Обложка сбора | varchar(100)
     * `end_date` - Дата завершения сбора | timestamp
     * `status` - Статус активности сбора | boolean, default:True
@@ -57,7 +57,7 @@ class Collect(models.Model):
     )
 
     person_count = models.IntegerField(
-        default=1,
+        default=0,
         verbose_name='Сколько человек участвует в сборе'
     )
 
@@ -81,6 +81,10 @@ class Collect(models.Model):
         verbose_name="Статус сбора",
         help_text="True - сбор активен, False - нет"
     )
+
+    def deactivate(self):
+        self.status = False
+        self.save()
 
     class Meta:
         verbose_name='Сбор'
