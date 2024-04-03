@@ -27,10 +27,10 @@ def pay(
     if pay_to.status == False:
         raise Exception("Сбор закрыт")
 
-    # добавляем сумму
-    pay_to.sum += sum
-    pay_to.save()
-
+    if not Payment.objects.filter(pay_to=pay_to, payer=payer).exists():
+        pay_to.sum += sum
+        pay_to.person_count += 1
+        pay_to.save()
 
     payment = Payment.objects.create(
         pay_to=pay_to,
