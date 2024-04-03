@@ -52,6 +52,13 @@ create_superuser() {
     fi
 }
 
+schema_gen() {
+    if ! ./dmanage.py spectacular --color --file schema.yml; then
+        echo "Error schema gen"
+        exit 1
+    fi
+}
+
 # Handling command-line arguments
 case "$1" in
     app)
@@ -65,6 +72,9 @@ case "$1" in
         ;;
     su)
         create_superuser
+        ;;
+    schema)
+        schema_gen
         ;;
     --help|-H)
         display_help
