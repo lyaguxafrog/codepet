@@ -6,20 +6,14 @@ from fundraising.models import Payment, Collect
 from fundraising.services import pay
 
 
-class PaySerializer(serializers.Serializer):
+class PaySerializer(serializers.ModelSerializer):
     """
     Создание платежа
     """
-
-    payer_id = serializers.IntegerField()
-    pay_to = serializers.PrimaryKeyRelatedField(queryset=Collect.objects.all())
-    summ = serializers.FloatField()
-
-    def create(self, validated_data):
-        payment = pay(
-            payer=validated_data['payer_id'],
-            pay_to=validated_data['pay_to'],
-            sum=validated_data['summ']
-        )
-
-        return payment
+    class Meta:
+        model = Payment
+        fields = [
+            'pay_to',
+            'payer',
+            'sum',
+        ]

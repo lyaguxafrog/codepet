@@ -86,6 +86,9 @@ class Collect(models.Model):
         self.status = False
         self.save()
 
+    def __str__(self):
+        return self.collect_name
+
     class Meta:
         verbose_name='Сбор'
         verbose_name_plural='Сборы'
