@@ -9,4 +9,5 @@ class FundraisingConfig(AppConfig):
     verbose_name='Платежи и сборы'
 
     def ready(self) -> None:
-        import fundraising.signals.collect_signal
+        from fundraising.signals import close_collect_if_goal_reached
+        return super().ready()
