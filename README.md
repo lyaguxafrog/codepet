@@ -23,6 +23,8 @@ To generate a config:
 ### Environment variables
  * `SECRET_KEY` - Django secret key. For generate new once, you can use service https://djecrety.ir/
  * `DEBUG` - Flag to tell django work on debug mode or not.
+## Develop
+Для разработки используются [Devcontainers](https://containers.dev).
 * `DB_NAME` - PostgreSQL db name.
 * `DB_USER` - PostgreSQL db user.
 * `DB_PASSWORD` - PostgeSQL db password.
@@ -48,42 +50,7 @@ For create new django app:
 ```bash
 ./manage.sh app
 ```
-
-It will create new django app with this structure:
-```
-app/
-├── admin
-│   └── __init__.py
-├── apps.py
-├── __init__.py
-├── models
-│   └── __init__.py
-├── serializers
-│   └── __init__.py
-├── views
-│   └── __init__.py
-└── services
-    └── __init__.py
-```
-
-Create superuser:
-```bash
-./manage.sh su
-```
-
-To debug django code use cmd+F5
-
-Open http://localhost:8000 you will see this and this is normall. There is no builded webclient.
-
-![localhost](https://github.com/lyaguxafrog/python-backend-devcontainers/blob/release/docs/pics/localhost_8000.png?raw=true)
-
-Open http://localhost:8000/admin to see admin dashboard.
-
-
-### Deploy
-For deploy run:
-```bash
-deploy.sh
+./deploy.sh 
 ```
 
 On local machine app will running on http://0.0.0.0/

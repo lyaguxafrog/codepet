@@ -16,7 +16,7 @@ class PayAPIView(generics.CreateAPIView):
         responses={
             status.HTTP_200_OK: "Платеж выполнен",
             status.HTTP_400_BAD_REQUEST: "Неверные данные",
-            status.HTTP_500_INTERNAL_SERVER_ERROR: "Ошибка платежа"
+            status.HTTP_500_INTERNAL_SERVER_ERROR: "Ошибка платежа",
         }
     )
     def post(self, request, *arg, **kwargs):
