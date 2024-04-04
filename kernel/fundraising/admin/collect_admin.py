@@ -16,6 +16,7 @@ class CollectAdmin(admin.ModelAdmin):
         'collect_goal',
         'collected_sum',
         'person_count',
+        'contributors',
         'create_date',
         'end_date',
         'status',

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from rest_framework import status, generics
-from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiTypes
+from drf_spectacular.utils import extend_schema
 
 from fundraising.serializers import PaySerializer
 

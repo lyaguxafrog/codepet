@@ -25,11 +25,9 @@ class CreateCollectSerializer(serializers.ModelSerializer):
         read_only_fields = ['collected_sum', 'person_count', 'create_date', 'status']
 
     def create(self, validated_data):
-        # Убедитесь, что collect_owner является экземпляром UserProfile
         collect_owner = validated_data.get('collect_owner')
         if not isinstance(collect_owner, UserProfile):
             raise serializers.ValidationError("collect_owner должен быть экземпляром UserProfile")
 
-        # Создание нового экземпляра Collect
         collect = Collect.objects.create(**validated_data)
         return collect

@@ -82,6 +82,12 @@ class Collect(models.Model):
         help_text="True - сбор активен, False - нет"
     )
 
+    contributors = models.JSONField(
+        default=list,
+        blank=True,
+        verbose_name='Список идентификаторов донатеров'
+    )
+
     def deactivate(self):
         self.status = False
         self.save()
