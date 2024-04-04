@@ -26,8 +26,8 @@ def update_payment(
         raise Exception("Сумма платежа должна быть положительной")
 
 
-    payment.sum += Decimal(sum)
-    payment.save()
+    # payment.sum += Decimal(sum)
+    # payment.save()
 
 
     collect_obj = payment.pay_to
