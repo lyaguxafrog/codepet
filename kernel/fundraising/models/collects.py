@@ -71,7 +71,7 @@ class Collect(models.Model):
         verbose_name="Дата создания сбора"
     )
 
-    end_date = models.DateTimeField(
+    end_date = models.DateField(
         null=True, blank=True,
         verbose_name="дата конца сбора средств",
     )
