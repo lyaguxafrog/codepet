@@ -7,3 +7,6 @@ class FundraisingConfig(AppConfig):
     name = 'fundraising'
     label = 'fundraising'
     verbose_name='Платежи и сборы'
+
+    def ready(self) -> None:
+        import fundraising.signals.collect_signal
