@@ -25,15 +25,8 @@ class ProfileAdmin(admin.ModelAdmin):
         'create_date',
     ]
 
-    search_fields = [
-        'user',
-        'first_name',
-        'last_name',
-        'patronymic',
-        'create_date',
-    ]
 
-
+    # ограничиваем на создание и удаление
     def has_delete_permission(
         self, request: HttpRequest, obj: UserProfile = None,
     ) -> bool:
