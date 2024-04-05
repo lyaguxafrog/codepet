@@ -1,7 +1,7 @@
 # CodePET
 
 ## About
-<!-- Yor description here -->
+Тестовое задание для CodePET
 
 ## Stack:
 * Django
@@ -10,29 +10,21 @@
 * Docker + Docker-compose
 * Gunicorn
 ---
-## Develop:
+# Develop:
 
-To work with the project, you need to install [vscode](https://code.visualstudio.com/) and [vscode-remote-containers](https://code.visualstudio.com/docs/remote/containers).
+Для разработки требуется [vscode](https://code.visualstudio.com/) и [vscode-remote-containers](https://code.visualstudio.com/docs/remote/containers).
 
 ### Config
-To generate a config:
+Для генерации конфига:
 ```bash
 ./deploy.sh config
 ```
-
-### Environment variables
- * `SECRET_KEY` - Django secret key. For generate new once, you can use service https://djecrety.ir/
- * `DEBUG` - Flag to tell django work on debug mode or not.
-## Develop
-Для разработки используются [Devcontainers](https://containers.dev).
-* `DB_NAME` - PostgreSQL db name.
-* `DB_USER` - PostgreSQL db user.
-* `DB_PASSWORD` - PostgeSQL db password.
+Создастся файл `.env`, в котором нужно указать все необходимые данные. Так же создастся файл `kernel/config/local_settings.py`, в котором нужно указать домен и данные CORS.
 
 
 ### Codding
 
-For developing backend with django, open django project in vscode and reopen it in container.
+Для разработки бэкенда с помощью django откройте проект django в vscode и снова откройте его в контейнере.
 
 
 ```bash
@@ -41,19 +33,80 @@ code kernel
 
 ![reopen](https://github.com/lyaguxafrog/python-backend-devcontainers/blob/release/docs/pics/reopen.png?raw=true)
 
-For migrate:
+Для миграции:
 ```bash
 ./manage.sh migrate
 ```
 
-For create new django app:
+Чтобы создать новое djangо-приложение:
 ```bash
 ./manage.sh app
+```
+---
+
+## Codestyle
+```python
+# -*- coding: utf-8 -*-
+
+# Сначала импорт общих модулей
+import os
+import sys
+import json
+
+# Django модули
+from django.db import models
+
+# Затем django-библиотеки
+from graphene_django import DjangoObjectType
+
+# И в конце локальные модули
+from app.models import MyModel
+
+
+class SomeClass:
+    """ Описание класса """
+
+    def t_sum(self, first_num: int, second_num: int) -> int:
+        """
+        Метод сложения двух чисел.
+
+        :param first_num: Первое число
+        :param second_num: Второе число
+
+        :returns: Возвращает сумму двух чисел.
+        """
+
+        return sum(first_num, second_num)
+
+
+class AnotherClass:
+    """
+    Длинное описание класса
+    """
+    pass
+```
+Отступы: четыре пробела. Максимальная длинна строки: 80 символов.
+
+
+
+
+---
+# Deploy
+
+Для деплоя нужно
+
+1. Создать конфиг
+```
+./deploy.sh config
+```
+Создастся файл `.env`, в котором нужно указать все необходимые данные. Так же создастся файл `kernel/config/local_settings.py`, в котором нужно указать домен и данные CORS.
+
+2. Запустить
 ```
 ./deploy.sh 
 ```
 
-On local machine app will running on http://0.0.0.0/
 
 
-&copy; Gen by [PBD](https://lyaguxafrog/python-backend-devcontainers) with 💚
+
+&copy; Gen by [PBD](https://gitub.com/lyaguxafrog/python-backend-devcontainers) with 💚
