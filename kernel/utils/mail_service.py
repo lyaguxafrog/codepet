@@ -10,7 +10,6 @@ from config.settings import (
     SMTP_SERVER,
     SMTP_USER
 )
-from users.models import UserProfile
 from fundraising.models import Payment
 
 
@@ -46,3 +45,4 @@ def send_email_about_payment(
             print(f"Email sent to {payer_email}")
     except Exception as e:
         print(f"Failed to send email: {e}")
+
