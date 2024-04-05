@@ -5,6 +5,8 @@ from rest_framework import serializers
 from fundraising.models import Payment, Collect
 from fundraising.services import update_payment
 
+from utils import send_email_about_payment as mail
+
 class PaySerializer(serializers.ModelSerializer):
     """
     Создание платежа
@@ -31,5 +33,6 @@ class PaySerializer(serializers.ModelSerializer):
         payment = Payment.objects.create(pay_to=pay_to, payer=payer, sum=sum)
 
         update_payment(payment=payment, sum=sum)
+        mail(payment=payment)
 
         return payment
