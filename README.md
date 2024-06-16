@@ -110,3 +110,8 @@ class AnotherClass:
 
 
 &copy; Gen by [PBD](https://gitub.com/lyaguxafrog/python-backend-devcontainers) with 💚
+
+### Infrastructure model
+![Infrastructure main model](.infragenie/infrastructure_main_model.svg)
+
+---
